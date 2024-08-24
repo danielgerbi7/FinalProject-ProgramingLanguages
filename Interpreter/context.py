@@ -1,4 +1,4 @@
-from symboltable import SymbolTable
+from Interpreter.symboltable import SymbolTable
 
 
 class Context:

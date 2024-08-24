@@ -20,7 +20,7 @@ class RegularFunction(Type):
 
     # Check if the number of arguments passed matches the expected number of arguments
     def check_args(self, arg_names, args):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         result = RunTimeResult()
         if len(args) > len(arg_names):
             return result.failure(RunTimeError(self.position_start, self.position_end, f"{len(args) - len(arg_names)} "f"too "f"many arguments passed into "f"'{self.name}'", self.context))
@@ -40,7 +40,7 @@ class RegularFunction(Type):
 
     # Check arguments and populate them in the context if valid
     def check_and_populate_args(self, arg_names, args, exec_ctx):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         result = RunTimeResult()
         result.register(self.check_args(arg_names, args))
         if result.error:
@@ -59,7 +59,7 @@ class Function(RegularFunction):
 
     # Execute the function with the provided arguments
     def execute(self, args):
-        from interpreter import Interpreter, RunTimeResult
+        from Interpreter.interpreter import Interpreter, RunTimeResult
         result = RunTimeResult()
         interpreter = Interpreter()
         exec_ctx = self.generate_new_context()
@@ -88,7 +88,7 @@ class BuiltInFunction(RegularFunction):
 
     # Execute the built-in function with the provided arguments
     def execute(self, args):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         result = RunTimeResult()
         exec_ctx = self.generate_new_context()
         method_name = f'execute_{self.name}'
@@ -104,7 +104,7 @@ class BuiltInFunction(RegularFunction):
 
     # Handle the case where the function is not defined
     def no_visit_method(self):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         result = RunTimeResult()
         return result.failure(RunTimeError(self.position_start, self.position_end, f"'{self.name}' is not defined", self.context))
 
@@ -115,7 +115,7 @@ class BuiltInFunction(RegularFunction):
 
     # Built-in print function: prints the value passed to it
     def execute_print(self, exec_ctx):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         print(str(exec_ctx.symbol_table.get('value')))
         return RunTimeResult().success(Number.null)
 
@@ -123,7 +123,7 @@ class BuiltInFunction(RegularFunction):
 
     # Built-in clear function: clears the console screen
     def execute_clear(self):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         os.system('cls' if os.name == 'nt' else 'clear')
         return RunTimeResult().success(Number.null)
 
@@ -131,7 +131,7 @@ class BuiltInFunction(RegularFunction):
 
     # Built-in input function: takes an integer input from the user
     def execute_input_int(self):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         while True:
             txt = input()
             try:
@@ -144,13 +144,13 @@ class BuiltInFunction(RegularFunction):
 
     @staticmethod
     def execute_is_number(exec_ctx):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         is_number = isinstance(exec_ctx.symbol_table.get('value'), Number)
         return RunTimeResult().success(Number.true if is_number else Number.false)
 
     @staticmethod
     def execute_is_function(exec_ctx):
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import RunTimeResult
         is_function = isinstance(exec_ctx.symbol_table.get('value'), RegularFunction)
         return RunTimeResult().success(Number.true if is_function else Number.false)
 

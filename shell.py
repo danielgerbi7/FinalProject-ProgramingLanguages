@@ -1,13 +1,13 @@
 import os
 import sys
 
-from context import Context
-from interpreter import Interpreter
-from lexer import Lexer
-from myfunction import BuiltInFunction
-from number import Number
-from parser import Parser
-from symboltable import SymbolTable
+from Interpreter.context import Context
+from Interpreter.interpreter import Interpreter
+from Lexer.lexer import Lexer
+from Interpreter.myfunction import BuiltInFunction
+from Interpreter.number import Number
+from Parser.parser import Parser
+from Interpreter.symboltable import SymbolTable
 run_line = False
 global_symbol_table = SymbolTable()
 global_symbol_table.add("null", Number.null)

@@ -13,8 +13,8 @@ class Lambda(Type):
 
     # Execute the lambda function with the given arguments
     def execute(self, args):
-        from interpreter import Interpreter
-        from interpreter import RunTimeResult
+        from Interpreter.interpreter import Interpreter
+        from Interpreter.interpreter import RunTimeResult
         result = RunTimeResult()
         interpreter = Interpreter()
         new_context = Context(self.name, self.context, self.position_start)

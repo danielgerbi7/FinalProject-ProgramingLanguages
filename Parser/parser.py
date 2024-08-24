@@ -1,7 +1,7 @@
 from astNode import NumberNode, BinaryOperationNode, UnaryOperationNode, BooleanNode, WhileNode, AccessNode, \
     FunctionDefinitionNode, FunctionCallNode, LambdaNode, ContinueNode, BreakNode, ReturnNode
 from error import InvalidSyntaxError
-from mytoken import Tokens
+from Lexer.mytoken import Tokens
 
 
 class Parser:

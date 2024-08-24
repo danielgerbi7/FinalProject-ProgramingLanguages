@@ -1,7 +1,7 @@
 
-from boolean import Boolean
+from Interpreter.boolean import Boolean
 from error import RunTimeError
-from mytoken import Tokens
+from Lexer.mytoken import Tokens
 from mytype import Type
 
 

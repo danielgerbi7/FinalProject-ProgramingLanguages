@@ -1,4 +1,4 @@
-from mytoken import Tokens
+from Lexer.mytoken import Tokens
 from mytype import Type
 
 
