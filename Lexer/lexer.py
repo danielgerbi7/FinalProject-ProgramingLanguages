@@ -1,5 +1,5 @@
 
-from mytoken import Token, Tokens
+from Lexer.mytoken import Token, Tokens
 from error import IllegalCharError, Position
 
 

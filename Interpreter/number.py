@@ -2,7 +2,7 @@
 from Interpreter.boolean import Boolean
 from error import RunTimeError
 from Lexer.mytoken import Tokens
-from mytype import Type
+from Interpreter.mytype import Type
 
 
 class Number(Type):

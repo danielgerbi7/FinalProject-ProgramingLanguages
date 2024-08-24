@@ -1,7 +1,7 @@
-from context import Context
+from Interpreter.context import Context
 from error import RunTimeError
-from mytype import Type
-from symboltable import SymbolTable
+from Interpreter.mytype import Type
+from Interpreter.symboltable import SymbolTable
 
 
 class Lambda(Type):

@@ -1,5 +1,5 @@
 from Lexer.mytoken import Tokens
-from mytype import Type
+from Interpreter.mytype import Type
 
 
 class Boolean(Type):

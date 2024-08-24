@@ -1,10 +1,10 @@
-from boolean import Boolean
-from context import Context
+from Interpreter.boolean import Boolean
+from Interpreter.context import Context
 from error import RunTimeError
-from myfunction import Function
-from mylambda import Lambda
+from Interpreter.myfunction import Function
+from Interpreter.mylambda import Lambda
 from Lexer.mytoken import Tokens
-from number import Number
+from Interpreter.number import Number
 
 
 class Interpreter:

@@ -1,4 +1,4 @@
-from astNode import NumberNode, BinaryOperationNode, UnaryOperationNode, BooleanNode, WhileNode, AccessNode, \
+from Parser.astNode import NumberNode, BinaryOperationNode, UnaryOperationNode, BooleanNode, WhileNode, AccessNode, \
     FunctionDefinitionNode, FunctionCallNode, LambdaNode, ContinueNode, BreakNode, ReturnNode
 from error import InvalidSyntaxError
 from Lexer.mytoken import Tokens

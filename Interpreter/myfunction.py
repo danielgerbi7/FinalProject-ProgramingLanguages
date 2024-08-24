@@ -1,9 +1,9 @@
 import os
 
-from context import Context
+from Interpreter.context import Context
 from error import RunTimeError
-from number import Number
-from mytype import Type
+from Interpreter.number import Number
+from Interpreter.mytype import Type
 
 
 class RegularFunction(Type):
