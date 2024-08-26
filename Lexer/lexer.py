@@ -102,6 +102,9 @@ class Lexer:
                     return [], error
                 tokens.append(token)
                 self.advance()
+            elif self.current_char == '#':
+                self.skip_comment()
+
             elif self.current_char == ',':
                 tokens.append(Token(Tokens.COMMA, position_start=self.position))
                 self.advance()
@@ -216,3 +219,9 @@ class Lexer:
             self.advance()
             token_type = Tokens.ARROW
         return Token(token_type, position_start=position_start, position_end=self.position)
+
+    def skip_comment(self):
+        self.advance()
+        while self.current_char != '\n':
+            self.advance()
+        self.advance()
