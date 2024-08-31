@@ -37,6 +37,6 @@
 <compare_op> ::= <equal_op> | ">" | "<" | ">=" | "<="
 <int> ::= <regular_numbers> | 0 | <regular_numbers> <int>
 <regular_numbers> ::= [1-9]+
-<:keywords> ::= "while"
+<keywords> ::= "while"
 <identifier> ::= <letter> (<letter> | <digit>)*
 """
